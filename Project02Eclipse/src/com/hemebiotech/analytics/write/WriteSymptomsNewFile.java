@@ -13,7 +13,13 @@ public class WriteSymptomsNewFile implements ISymptomWrite{
 		this.filepath = filepath;
 	}
 
-	public String printFile (Map<String, Integer> mapSymptoms) {
+	/**
+	 * @param mapSymptoms
+	 * use key and value to print file
+	 *
+	 */
+
+	public void printFile (Map<String, Integer> mapSymptoms) {
 		String print = new String();
 		try {
 			PrintWriter writer = new PrintWriter(filepath, encoding);
@@ -27,6 +33,6 @@ public class WriteSymptomsNewFile implements ISymptomWrite{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return print;
+
 	}
 }

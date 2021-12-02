@@ -10,7 +10,8 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
+
 		ReadSymptomDataFromFile readSymptom = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		List<String> symptomsList = readSymptom.GetSymptoms();
 
