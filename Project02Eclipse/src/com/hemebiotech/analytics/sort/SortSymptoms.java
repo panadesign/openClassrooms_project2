@@ -6,15 +6,24 @@ import java.util.TreeMap;
 
 public class SortSymptoms implements ISymptomSort {
 
-	public Map<String, Integer> mapSymptoms (List<String> symptomsList) {
+	/**
+	 *
+	 * @param symptomsList
+	 * sort data by alphabetical order and count data occurrences
+	 *
+	 * @return
+	 * return a map of symptomsList
+	 *
+	 */
+
+	public Map<String, Integer> createMapSymptomAndSort(List<String> symptomsList) {
 		Map<String, Integer> map = new TreeMap<>();
 
-		for(int i=0; i<symptomsList.size(); i++) {
-			String currentSymptom = symptomsList.get(i);
+		for (String currentSymptom : symptomsList) {
 			int countSymptom = map.getOrDefault(currentSymptom, 0) + 1;
 			map.put(currentSymptom, countSymptom);
 		}
-		System.out.println(map);
+
 		return map;
 
 	}
