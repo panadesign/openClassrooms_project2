@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface ISymptomSort {
 
-	Map<String, Integer> mapSymptoms (List<String> symptomsList);
+	Map<String, Integer> createMapSymptomAndSort(List<String> symptomsList);
 
 }

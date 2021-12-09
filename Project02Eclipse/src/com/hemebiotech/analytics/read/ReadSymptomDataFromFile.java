@@ -1,8 +1,6 @@
 package com.hemebiotech.analytics.read;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,22 +10,29 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
+	private final String filepath;
 	
 	/**
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
+	public ReadSymptomDataFromFile (String filepath) throws IOException {
+
 		this.filepath = filepath;
+		BufferedReader tryRead = new BufferedReader(new FileReader(filepath));
+
+		try {
+			tryRead.readLine();
+		} catch (IOException e) {
+			System.out.println("Caution, your file doesn't exist or is empty");
+		}
+
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
+	public List<String> GetSymptoms() throws IOException{
+		ArrayList<String> result = new ArrayList<>();
+
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 				
@@ -36,10 +41,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();
 				}
 				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 		
 		return result;
 	}
