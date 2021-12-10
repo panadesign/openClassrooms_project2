@@ -1,6 +1,5 @@
 package com.hemebiotech.analytics.write;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -13,8 +12,6 @@ public class WriteSymptomsNewFile implements ISymptomWrite {
 
 	public WriteSymptomsNewFile(String filepath) {
 		this.filepath = filepath;
-
-		File f = new File(filepath);
 	}
 
 	/**
@@ -22,6 +19,7 @@ public class WriteSymptomsNewFile implements ISymptomWrite {
 	 */
 
 	public void printFile(Map<String, Integer> mapSymptoms) {
+		
 		try {
 			PrintWriter writer = new PrintWriter(filepath, encoding);
 
