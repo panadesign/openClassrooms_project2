@@ -1,7 +1,5 @@
 package com.hemebiotech.analytics.write;
 
-import com.hemebiotech.analytics.write.ISymptomWrite;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,23 +11,21 @@ public class WriteSymptomsNewFile implements ISymptomWrite {
 	private final String encoding = StandardCharsets.UTF_8.name();
 	private final String filepath;
 
-	public WriteSymptomsNewFile (String filepath) {
+	public WriteSymptomsNewFile(String filepath) {
 		this.filepath = filepath;
 
 		File f = new File(filepath);
 	}
 
 	/**
-	 * @param mapSymptoms
-	 * use key and value to print file
-	 *
+	 * @param mapSymptoms use key and value to print file
 	 */
 
-	public void printFile (Map<String, Integer> mapSymptoms) {
+	public void printFile(Map<String, Integer> mapSymptoms) {
 		try {
 			PrintWriter writer = new PrintWriter(filepath, encoding);
 
-			for(Map.Entry<String, Integer> entry : mapSymptoms.entrySet()) {
+			for (Map.Entry<String, Integer> entry : mapSymptoms.entrySet()) {
 				writer.write(entry.getKey() + " : " + entry.getValue() + "\n");
 			}
 

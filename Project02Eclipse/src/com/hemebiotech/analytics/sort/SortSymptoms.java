@@ -7,13 +7,8 @@ import java.util.TreeMap;
 public class SortSymptoms implements ISymptomSort {
 
 	/**
-	 *
-	 * @param symptomsList
-	 * sort data by alphabetical order and count data occurrences
-	 *
-	 * @return
-	 * return a map of symptomsList
-	 *
+	 * @param symptomsList sort data by alphabetical order and count data occurrences
+	 * @return return a map of symptomsList
 	 */
 
 	public Map<String, Integer> createMapSymptomAndSort(List<String> symptomsList) {
