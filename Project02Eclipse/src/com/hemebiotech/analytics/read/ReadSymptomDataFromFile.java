@@ -16,6 +16,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	/**
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @throws IOException IllegalArgumentException verify if filepath is empty
 	 */
 	public ReadSymptomDataFromFile(String filepath) throws IOException {
 		if (filepath == null || filepath.isEmpty()) {
